@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "product": "Product",
+    "about": "About",
+    "contact": "Contact",
+    "github": "GitHub"
+  },
+  "hero": {
+    "badge": "Open-Source RAG Framework",
+    "title": "Domain-Specialized RAG",
+    "titleHighlight": "for Every Industry",
+    "description": "mAI-Brain is an open-source domain-specific RAG chatbot framework that delivers precise, industry-tailored AI answers — not generic responses.",
+    "cta": "Get Started",
+    "ctaSecondary": "View on GitHub"
+  },
+  "product": {
+    "badge": "Product",
+    "title": "Why mAI-Brain?",
+    "subtitle": "Purpose-built for domains that demand precision over generality.",
+    "features": {
+      "domain": {
+        "title": "Domain-Specialized",
+        "description": "Industry-specific knowledge pipelines that understand context, terminology, and nuance — not just keywords."
+      },
+      "vector": {
+        "title": "Qdrant Vector DB",
+        "description": "High-performance vector search powered by Qdrant for lightning-fast semantic retrieval at scale."
+      },
+      "multimodel": {
+        "title": "Multi-LLM Support",
+        "description": "Seamlessly integrate DeepSeek, OpenAI, or Ollama — choose the model that fits your domain and budget."
+      },
+      "opensource": {
+        "title": "Open Source",
+        "description": "Fully open-source and self-hostable. No vendor lock-in, no hidden costs. Your data stays yours."
+      },
+      "comparison": {
+        "title": "vs. Generic RAG",
+        "description": "AnythingLLM answers questions. mAI-Brain answers questions the way your industry needs them answered."
+      },
+      "rag": {
+        "title": "Advanced RAG Pipeline",
+        "description": "Sophisticated retrieval-augmented generation with chunking, embedding, and re-ranking optimized per domain."
+      }
+    }
+  },
+  "about": {
+    "badge": "About",
+    "title": "Built by 다른새벽",
+    "subtitle": "We believe AI should understand your industry, not just your questions.",
+    "story": "다른새벽 (OtherDawn) is an IT startup focused on making domain-specific AI accessible. While generic AI tools give you answers, they often miss the context that matters in specialized fields — healthcare, legal, finance, manufacturing, and more.",
+    "story2": "mAI-Brain was born from this frustration: why settle for a chatbot that doesn't understand your world? We built an open-source framework where every component — from document ingestion to retrieval to generation — can be tailored to your domain.",
+    "values": {
+      "precision": { "title": "Precision", "description": "Domain context in every answer" },
+      "openness": { "title": "Openness", "description": "Open-source, always" },
+      "autonomy": { "title": "Autonomy", "description": "Self-host, own your data" }
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Get in Touch",
+    "subtitle": "Interested in mAI-Brain? Let's talk.",
+    "email": "Email",
+    "github": "GitHub",
+    "form": {
+      "name": "Name",
+      "emailLabel": "Email",
+      "message": "Message",
+      "submit": "Send Message"
+    }
+  },
+  "footer": {
+    "description": "Domain-specialized RAG framework for every industry.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "rights": "© 2024 다른새벽 (OtherDawn). All rights reserved."
+  },
+  "languageSwitcher": {
+    "en": "EN",
+    "ko": "한"
+  }
+}

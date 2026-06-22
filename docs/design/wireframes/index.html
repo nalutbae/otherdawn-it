@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI/UX Wireframe Collection</title>
+  <link rel="stylesheet" href="../tokens/colors.css">
+  <link rel="stylesheet" href="../components/core.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-neutral-50);
+      color: var(--color-neutral-800);
+      line-height: var(--leading-normal);
+    }
+
+    .wireframe-showcase {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: var(--space-8);
+    }
+
+    .section-header {
+      margin-bottom: var(--space-8);
+    }
+
+    .section-title {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-neutral-800);
+      margin-bottom: var(--space-2);
+    }
+
+    .section-subtitle {
+      font-size: var(--text-base);
+      color: var(--color-neutral-500);
+    }
+
+    .wireframe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-12);
+    }
+
+    .wireframe-card {
+      background: var(--color-neutral-0);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .wireframe-preview {
+      height: 300px;
+      background: var(--color-neutral-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--color-neutral-200);
+    }
+
+    .wireframe-label {
+      padding: var(--space-4);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-neutral-700);
+    }
+
+    /* Wireframe Layout Styles */
+    .wf-container {
+      width: 100%;
+      height: 100%;
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .wf-navbar {
+      height: 48px;
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--space-3);
+      gap: var(--space-4);
+    }
+
+    .wf-logo {
+      width: 32px;
+      height: 32px;
+      background: var(--color-primary-300);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-nav-items {
+      display: flex;
+      gap: var(--space-2);
+      flex: 1;
+      margin-left: var(--space-8);
+    }
+
+    .wf-nav-item {
+      width: 48px;
+      height: 24px;
+      background: var(--color-neutral-300);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: var(--space-3);
+    }
+
+    .wf-sidebar {
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-2);
+    }
+
+    .wf-sidebar-item {
+      height: 32px;
+      background: var(--color-neutral-300);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-content {
+      background: var(--color-neutral-100);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .wf-hero {
+      height: 80px;
+      background: var(--color-primary-100);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xs);
+      color: var(--color-primary-700);
+    }
+
+    .wf-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2);
+    }
+
+    .wf-card {
+      height: 60px;
+      background: var(--color-neutral-0);
+      border: 1px solid var(--color-neutral-300);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-table {
+      height: 80px;
+      background: var(--color-neutral-0);
+      border: 1px solid var(--color-neutral-300);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Mobile Layout */
+    .wf-mobile {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wf-mobile-nav {
+      height: 56px;
+      background: var(--color-neutral-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-4);
+    }
+
+    .wf-mobile-menu {
+      width: 24px;
+      height: 16px;
+      background: var(--color-neutral-400);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-mobile-content {
+      flex: 1;
+      background: var(--color-neutral-100);
+      margin: var(--space-3);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .wf-mobile-card {
+      height: 48px;
+      background: var(--color-neutral-0);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-mobile-bottom-nav {
+      height: 64px;
+      background: var(--color-neutral-0);
+      border-top: 1px solid var(--color-neutral-200);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .wf-mobile-nav-item {
+      width: 40px;
+      height: 40px;
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-md);
+    }
+
+    /* Dashboard Layout */
+    .wf-dashboard {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 56px 1fr;
+      gap: var(--space-3);
+      padding: var(--space-3);
+    }
+
+    .wf-dash-header {
+      grid-column: 1 / -1;
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-dash-sidebar {
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-dash-main {
+      background: var(--color-neutral-100);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: var(--space-3);
+    }
+
+    .wf-dash-widget {
+      background: var(--color-neutral-0);
+      border: 1px solid var(--color-neutral-300);
+      border-radius: var(--radius-sm);
+    }
+
+    /* E-commerce Layout */
+    .wf-ecommerce {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wf-ecom-header {
+      height: 64px;
+      background: var(--color-neutral-200);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--space-4);
+      gap: var(--space-4);
+    }
+
+    .wf-search {
+      flex: 1;
+      height: 32px;
+      background: var(--color-neutral-0);
+      border-radius: var(--radius-md);
+    }
+
+    .wf-ecom-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: var(--space-3);
+      padding: var(--space-3);
+    }
+
+    .wf-filters {
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-products {
+      background: var(--color-neutral-100);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2);
+    }
+
+    .wf-product {
+      background: var(--color-neutral-0);
+      border: 1px solid var(--color-neutral-300);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Auth Layout */
+    .wf-auth {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-neutral-200);
+    }
+
+    .wf-auth-card {
+      width: 320px;
+      background: var(--color-neutral-0);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .wf-auth-title {
+      height: 24px;
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-2);
+    }
+
+    .wf-input {
+      height: 40px;
+      background: var(--color-neutral-100);
+      border: 1px solid var(--color-neutral-300);
+      border-radius: var(--radius-md);
+    }
+
+    .wf-btn {
+      height: 40px;
+      background: var(--color-primary-300);
+      border-radius: var(--radius-md);
+    }
+
+    /* Content Layout */
+    .wf-content-layout {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wf-content-header {
+      height: 48px;
+      background: var(--color-neutral-200);
+    }
+
+    .wf-content-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: var(--space-4);
+      padding: var(--space-4);
+    }
+
+    .wf-article {
+      background: var(--color-neutral-0);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .wf-article-block {
+      height: 16px;
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+    }
+
+    .wf-toc {
+      background: var(--color-neutral-100);
+      border-radius: var(--radius-md);
+      padding: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .wf-toc-item {
+      height: 20px;
+      background: var(--color-neutral-200);
+      border-radius: var(--radius-sm);
+    }
+  </style>
+</head>
+<body>
+  <div class="wireframe-showcase">
+    <!-- Header -->
+    <header class="section-header">
+      <h1 class="section-title">UI/UX Wireframe Collection</h1>
+      <p class="section-subtitle">Project-agnostic wireframe templates for common application patterns</p>
+    </header>
+
+    <!-- Desktop App Layout -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Desktop Application</h2>
+        <p class="section-subtitle">SaaS dashboard with sidebar navigation</p>
+      </div>
+      <div class="wireframe-grid">
+        <div class="wireframe-card">
+          <div class="wireframe-preview">
+            <div class="wf-container">
+              <div class="wf-navbar">
+                <div class="wf-logo"></div>
+                <div class="wf-nav-items">
+                  <div class="wf-nav-item"></div>
+                  <div class="wf-nav-item"></div>
+                  <div class="wf-nav-item"></div>
+                </div>
+              </div>
+              <div class="wf-main">
+                <div class="wf-sidebar">
+                  <div class="wf-sidebar-item"></div>
+                  <div class="wf-sidebar-item"></div>
+                  <div class="wf-sidebar-item"></div>
+                  <div class="wf-sidebar-item"></div>
+                </div>
+                <div class="wf-content">
+                  <div class="wf-hero">Hero / Key Metrics</div>
+                  <div class="wf-cards">
+                    <div class="wf-card"></div>
+                    <div class="wf-card"></div>
+                    <div class="wf-card"></div>
+                  </div>
+                  <div class="wf-table"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wireframe-label">Main Dashboard</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile App Layout -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Mobile Application</h2>
+        <p class="section-subtitle">Native mobile app with bottom navigation</p>
+      </div>
+      <div class="wireframe-grid">
+        <div class="wireframe-card">
+          <div class="wireframe-preview">
+            <div class="wf-mobile">
+              <div class="wf-mobile-nav">
+                <div class="wf-mobile-menu"></div>
+                <div class="wf-logo" style="width: 40px; height: 40px;"></div>
+                <div class="wf-mobile-menu"></div>
+              </div>
+              <div class="wf-mobile-content">
+                <div class="wf-mobile-card"></div>
+                <div class="wf-mobile-card"></div>
+                <div class="wf-mobile-card"></div>
+              </div>
+              <div class="wf-mobile-bottom-nav">
+                <div class="wf-mobile-nav-item"></div>
+                <div class="wf-mobile-nav-item"></div>
+                <div class="wf-mobile-nav-item"></div>
+                <div class="wf-mobile-nav-item"></div>
+              </div>
+            </div>
+          </div>
+          <div class="wireframe-label">Mobile Home Feed</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Analytics -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Analytics Dashboard</h2>
+        <p class="section-subtitle">Data-heavy dashboard with widgets</p>
+      </div>
+      <div class="wireframe-grid">
+        <div class="wireframe-card">
+          <div class="wireframe-preview">
+            <div class="wf-dashboard">
+              <div class="wf-dash-header"></div>
+              <div class="wf-dash-sidebar"></div>
+              <div class="wf-dash-main">
+                <div class="wf-dash-widget"></div>
+                <div class="wf-dash-widget"></div>
+                <div class="wf-dash-widget"></div>
+                <div class="wf-dash-widget"></div>
+              </div>
+            </div>
+          </div>
+          <div class="wireframe-label">Analytics Overview</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- E-commerce -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">E-Commerce</h2>
+        <p class="section-subtitle">Product listing with filters</p>
+      </div>
+      <div class="wireframe-grid">
+        <div class="wireframe-card">
+          <div class="wireframe-preview">
+            <div class="wf-ecommerce">
+              <div class="wf-ecom-header">
+                <div class="wf-logo"></div>
+                <div class="wf-search"></div>
+                <div class="wf-mobile-menu"></div>
+              </div>
+              <div class="wf-ecom-main">
+                <div class="wf-filters"></div>
+                <div class="wf-products">
+                  <div class="wf-product"></div>
+                  <div class="wf-product"></div>
+                  <div class="wf-product"></div>
+                  <div class="wf-product"></div>
+                  <div class="wf-product"></div>
+                  <div class="wf-product"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wireframe-label">Product Listing Page</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Authentication -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Authentication</h2>
+        <p class="section-subtitle">Login and signup flows</p>
+      </div>
+      <div class="wireframe-grid">
+        <div class="wireframe-card">
+          <div class="wireframe-preview">
+            <div class="wf-auth">
+              <div class="wf-auth-card">
+                <div class="wf-auth-title"></div>
+                <div class="wf-input"></div>
+                <div class="wf-input"></div>
+                <div class="wf-btn"></div>
+              </div>
+            </div>
+          </div>
+          <div class="wireframe-label">Login Form</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content / Blog -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Content Platform</h2>
+        <p class="section-subtitle">Article layout with table of contents</p>
+      </div>
+      <div class="wireframe-grid">
+        <div class="wireframe-card">
+          <div class="wireframe-preview">
+            <div class="wf-content-layout">
+              <div class="wf-content-header"></div>
+              <div class="wf-content-main">
+                <div class="wf-article">
+                  <div class="wf-article-block" style="height: 32px;"></div>
+                  <div class="wf-article-block"></div>
+                  <div class="wf-article-block"></div>
+                  <div class="wf-article-block"></div>
+                  <div class="wf-article-block"></div>
+                </div>
+                <div class="wf-toc">
+                  <div class="wf-toc-item"></div>
+                  <div class="wf-toc-item"></div>
+                  <div class="wf-toc-item"></div>
+                  <div class="wf-toc-item"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wireframe-label">Article Page</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component Library Reference -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Component Reference</h2>
+        <p class="section-subtitle">Ready-to-use UI components</p>
+      </div>
+      
+      <div class="card" style="margin-bottom: var(--space-6);">
+        <div class="card-header">
+          <h3 class="card-title">Buttons</h3>
+        </div>
+        <div class="card-body">
+          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-secondary">Secondary Button</button>
+            <button class="btn btn-tertiary">Tertiary Button</button>
+            <button class="btn btn-danger">Danger Button</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-6);">
+        <div class="card-header">
+          <h3 class="card-title">Form Elements</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label class="form-label form-label-required">Email Address</label>
+            <input type="email" class="form-input" placeholder="you@example.com">
+            <span class="form-helper">We'll never share your email with anyone else.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-input" value="incorrect-value">
+            <span class="form-error">Password must be at least 8 characters</span>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="terms" class="form-check-input" checked>
+            <label for="terms" class="form-check-label">I agree to the terms and conditions</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-6);">
+        <div class="card-header">
+          <h3 class="card-title">Alerts & Feedback</h3>
+        </div>
+        <div class="card-body">
+          <div class="alert alert-success" style="margin-bottom: var(--space-3);">
+            <strong>Success!</strong> Your changes have been saved.
+          </div>
+          <div class="alert alert-warning" style="margin-bottom: var(--space-3);">
+            <strong>Warning!</strong> Please review before continuing.
+          </div>
+          <div class="alert alert-error" style="margin-bottom: var(--space-3);">
+            <strong>Error!</strong> Something went wrong. Please try again.
+          </div>
+          <div class="alert alert-info">
+            <strong>Info:</strong> This feature is in beta.
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom: var(--space-6);">
+        <div class="card-header">
+          <h3 class="card-title">Data Display</h3>
+        </div>
+        <div class="card-body">
+          <div style="display: flex; gap: var(--space-3); margin-bottom: var(--space-4);">
+            <span class="badge badge-primary">Primary</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-warning">Warning</span>
+            <span class="badge badge-error">Error</span>
+          </div>
+          <div style="display: flex; gap: var(--space-3); align-items: center;">
+            <div class="avatar">JD</div>
+            <div class="avatar avatar-sm">JD</div>
+            <div class="avatar avatar-lg">JD</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Table</h3>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Doe</td>
+                  <td>john@example.com</td>
+                  <td>Admin</td>
+                  <td><span class="badge badge-success">Active</span></td>
+                </tr>
+                <tr>
+                  <td>Jane Smith</td>
+                  <td>jane@example.com</td>
+                  <td>Editor</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>Bob Wilson</td>
+                  <td>bob@example.com</td>
+                  <td>Viewer</td>
+                  <td><span class="badge badge-error">Inactive</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
