@@ -2,11 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import { Navbar } from '@/components/layout/Navbar';
 import { Hero } from '@/components/sections/Hero';
-import dynamic from 'next/dynamic';
-
-const Footer = dynamic(() => import('@/components/layout/Footer').then(mod => ({ default: mod.Footer })), {
-  ssr: true,
-});
+import { Footer } from '@/components/layout/Footer';
 
 import { routing } from '@/routing';
 

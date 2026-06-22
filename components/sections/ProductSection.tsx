@@ -97,7 +97,7 @@ export function ProductSection() {
           >
             {t('badge')}
           </m.span>
-          <m.h2 
+          <m.h1
             className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ export function ProductSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {t('title')}
-          </m.h2>
+          </m.h1>
           <m.p 
             className="mx-auto mt-4 max-w-2xl text-lg text-gray-400"
             initial={{ opacity: 0, y: 20 }}
