@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { routing } from '@/routing';
+import { MotionProvider } from '@/components/providers/MotionProvider';
 import '@/app/globals.css';
 
 const locales = routing.locales;
@@ -56,7 +57,9 @@ export default async function LocaleLayout({
     <html lang={locale} className="dark">
       <body className={`${GeistSans.className} bg-navy-950 text-white antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <MotionProvider>
+            {children}
+          </MotionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

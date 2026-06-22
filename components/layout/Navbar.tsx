@@ -5,7 +5,7 @@ import { Link, usePathname, useRouter } from '@/navigation';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { href: '/product', labelKey: 'product' },
@@ -71,7 +71,7 @@ export function Navbar() {
   }, [pathname]);
 
   return (
-    <motion.header 
+    <m.header 
       className={cn(
         'fixed top-0 z-50 w-full border-b border-white/5 backdrop-blur-xl transition-all duration-300',
         scrolled ? 'bg-navy-950/90 shadow-lg' : 'bg-navy-950/80'
@@ -82,12 +82,12 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Logo with hover effect */}
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Link 
             href="/" 
             className="flex items-center gap-2 text-lg font-bold tracking-tight"
           >
-            <motion.span 
+            <m.span 
               className="gradient-text"
               whileHover={{ 
                 backgroundPosition: '100% 0',
@@ -95,15 +95,15 @@ export function Navbar() {
               }}
             >
               다른새벽
-            </motion.span>
+            </m.span>
             <span className="text-gray-500">IT</span>
           </Link>
-        </motion.div>
+        </m.div>
 
         {/* Desktop nav with enhanced hover effects */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
-            <motion.div key={link.href} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <m.div key={link.href} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href={link.href}
                 className={cn(
@@ -115,7 +115,7 @@ export function Navbar() {
               >
                 {t(link.labelKey)}
                 {pathname === link.href && (
-                  <motion.div
+                  <m.div
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-accent-emerald to-accent-cyan"
                     layoutId="navbar-indicator"
                     initial={false}
@@ -123,9 +123,9 @@ export function Navbar() {
                   />
                 )}
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-          <motion.a
+          <m.a
             href="https://github.com/nalutbae/mAI-Brain"
             target="_blank"
             rel="noopener noreferrer"
@@ -134,14 +134,14 @@ export function Navbar() {
             whileTap={{ scale: 0.95 }}
           >
             {t('github')}
-          </motion.a>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          </m.a>
+          <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <LanguageSwitcher />
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Mobile toggle with animation */}
-        <motion.button
+        <m.button
           className="md:hidden text-gray-400 hover:text-white"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
@@ -150,7 +150,7 @@ export function Navbar() {
         >
           <AnimatePresence mode="wait">
             {mobileOpen ? (
-              <motion.svg
+              <m.svg
                 key="close"
                 className="h-6 w-6"
                 fill="none"
@@ -162,9 +162,9 @@ export function Navbar() {
                 transition={{ duration: 0.2 }}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </motion.svg>
+              </m.svg>
             ) : (
-              <motion.svg
+              <m.svg
                 key="menu"
                 className="h-6 w-6"
                 fill="none"
@@ -176,16 +176,16 @@ export function Navbar() {
                 transition={{ duration: 0.2 }}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </motion.svg>
+              </m.svg>
             )}
           </AnimatePresence>
-        </motion.button>
+        </m.button>
       </nav>
 
       {/* Mobile menu with animation */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <m.div
             className="border-t border-white/5 bg-navy-950/95 backdrop-blur-xl md:hidden overflow-hidden"
             variants={mobileMenuVariants}
             initial="closed"
@@ -194,7 +194,7 @@ export function Navbar() {
           >
             <div className="mx-auto max-w-6xl space-y-1 px-4 py-4">
               {navLinks.map((link) => (
-                <motion.div
+                <m.div
                   key={link.href}
                   variants={mobileItemVariants}
                   whileHover={{ x: 5 }}
@@ -211,9 +211,9 @@ export function Navbar() {
                   >
                     {t(link.labelKey)}
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
-              <motion.div
+              <m.div
                 variants={mobileItemVariants}
                 whileHover={{ x: 5 }}
                 whileTap={{ scale: 0.98 }}
@@ -226,14 +226,14 @@ export function Navbar() {
                 >
                   {t('github')}
                 </a>
-              </motion.div>
-              <motion.div variants={mobileItemVariants} className="pt-2">
+              </m.div>
+              <m.div variants={mobileItemVariants} className="pt-2">
                 <LanguageSwitcher />
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </m.header>
   );
 }

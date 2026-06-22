@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const features = [
@@ -79,26 +79,25 @@ export function ProductSection() {
   const t = useTranslations('product');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-
   return (
     <section className="relative px-4 py-24 pt-32 sm:px-6">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <motion.div
+        <m.div
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <motion.span 
+          <m.span 
             className="inline-flex items-center rounded-full border border-accent-emerald/20 bg-accent-emerald/10 px-4 py-1.5 text-sm font-medium text-accent-emerald"
             whileHover={{ scale: 1.05, borderColor: 'rgba(16, 185, 129, 0.4)' }}
             transition={{ type: 'spring', stiffness: 400 }}
           >
             {t('badge')}
-          </motion.span>
-          <motion.h2 
+          </m.span>
+          <m.h2 
             className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,8 +105,8 @@ export function ProductSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {t('title')}
-          </motion.h2>
-          <motion.p 
+          </m.h2>
+          <m.p 
             className="mx-auto mt-4 max-w-2xl text-lg text-gray-400"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -115,13 +114,13 @@ export function ProductSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {t('subtitle')}
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
 
         {/* Feature grid with enhanced hover effects */}
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((key, i) => (
-            <motion.div
+            <m.div
               key={key}
               className="glass-card p-6 transition-all hover:border-accent-emerald/20 hover:glow-emerald"
               initial={{ opacity: 0, y: 20 }}
@@ -134,21 +133,21 @@ export function ProductSection() {
                 transition: { type: 'spring', stiffness: 300 }
               }}
             >
-              <motion.div 
+              <m.div 
                 className="mb-4 inline-flex rounded-lg bg-accent-emerald/10 p-2.5 text-accent-emerald"
                 whileHover={{ rotate: 5, scale: 1.1 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 {icons[key]}
-              </motion.div>
+              </m.div>
               <h3 className="text-lg font-semibold">{t(`features.${key}.title`)}</h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-400">{t(`features.${key}.description`)}</p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* Architecture diagram with animated flow */}
-        <motion.div
+        <m.div
           ref={ref}
           className="mt-24"
           initial={{ opacity: 0, y: 20 }}
@@ -156,18 +155,18 @@ export function ProductSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <motion.h3 
+          <m.h3 
             className="text-center text-2xl font-bold"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
             {t('archTitle')}
-          </motion.h3>
+          </m.h3>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-2">
             {archSteps.map((step, i) => (
               <div key={step} className="flex items-center gap-2 sm:gap-4">
-                <motion.div
+                <m.div
                   className="glass-card flex flex-col items-center gap-3 p-6 text-center"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -178,7 +177,7 @@ export function ProductSection() {
                     boxShadow: '0 0 30px rgba(16, 185, 129, 0.2)'
                   }}
                 >
-                  <motion.div 
+                  <m.div 
                     className="text-accent-emerald"
                     animate={isInView ? {
                       y: [0, -5, 0],
@@ -192,11 +191,11 @@ export function ProductSection() {
                     }}
                   >
                     {archIcons[i]}
-                  </motion.div>
+                  </m.div>
                   <span className="text-sm font-medium text-gray-300">{t(step)}</span>
-                </motion.div>
+                </m.div>
                 {i < archSteps.length - 1 && (
-                  <motion.div 
+                  <m.div 
                     className="hidden text-accent-emerald/40 sm:block"
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -206,22 +205,22 @@ export function ProductSection() {
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                  </motion.div>
+                  </m.div>
                 )}
               </div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Comparison table with row hover effects */}
-        <motion.div
+        <m.div
           className="mt-24"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <motion.h3 
+          <m.h3 
             className="text-center text-2xl font-bold"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -229,8 +228,8 @@ export function ProductSection() {
             transition={{ duration: 0.5 }}
           >
             {t('comparisonTitle')}
-          </motion.h3>
-          <motion.p 
+          </m.h3>
+          <m.p 
             className="mx-auto mt-3 max-w-xl text-center text-gray-400"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -238,10 +237,10 @@ export function ProductSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {t('comparisonSubtitle')}
-          </motion.p>
+          </m.p>
 
           <div className="mt-8 overflow-x-auto">
-            <motion.table 
+            <m.table 
               className="w-full min-w-[500px]"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -257,7 +256,7 @@ export function ProductSection() {
               </thead>
               <tbody>
                 {comparisonRows.map((row, i) => (
-                  <motion.tr
+                  <m.tr
                     key={row}
                     className="border-b border-white/5 transition-colors hover:bg-white/[0.02]"
                     initial={{ opacity: 0, x: -20 }}
@@ -272,12 +271,12 @@ export function ProductSection() {
                     <td className="px-4 py-3 text-sm font-medium text-gray-300">{t(`comparisonTable.${row}`)}</td>
                     <td className="px-4 py-3 text-center text-sm text-accent-emerald">{t(`comparisonTable.${row}MB`)}</td>
                     <td className="px-4 py-3 text-center text-sm text-gray-500">{t(`comparisonTable.${row}G`)}</td>
-                  </motion.tr>
+                  </m.tr>
                 ))}
               </tbody>
-            </motion.table>
+            </m.table>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
