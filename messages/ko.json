@@ -11,12 +11,22 @@
     "titleHighlight": "모든 산업을 위해",
     "description": "mAI-Brain은 산업에 맞춤화된 정밀한 AI 답변을 제공하는 오픈소스 도메인 특화 RAG 챗봇 프레임워크입니다.",
     "cta": "시작하기",
-    "ctaSecondary": "GitHub에서 보기"
+    "ctaSecondary": "GitHub에서 보기",
+    "stats": {
+      "stars": "6.9K+ 스타",
+      "forks": "1.2K+ 포크",
+      "domains": "무제한 도메인"
+    }
   },
   "product": {
     "badge": "제품",
     "title": "왜 mAI-Brain인가?",
     "subtitle": "정밀함이 범용성보다 중요한 도메인을 위해 설계되었습니다.",
+    "archTitle": "작동 원리",
+    "archStep1": "도메인 문서 수집",
+    "archStep2": "Qdrant 벡터 임베딩",
+    "archStep3": "컨텍스트 인식 검색",
+    "archStep4": "정밀한 도메인 답변 생성",
     "features": {
       "domain": {
         "title": "도메인 특화",
@@ -42,6 +52,31 @@
         "title": "고급 RAG 파이프라인",
         "description": "도메인별로 최적화된 청킹, 임베딩, 리랭킹이 적용된 정교한 RAG 파이프라인."
       }
+    },
+    "comparisonTitle": "mAI-Brain vs. 범용 RAG",
+    "comparisonSubtitle": "모호한 답변이 허용되지 않는 도메인을 위해 설계되었습니다.",
+    "comparisonTable": {
+      "feature": "기능",
+      "maiBrain": "mAI-Brain",
+      "generic": "범용 RAG",
+      "domainContext": "도메인 컨텍스트 인식",
+      "domainContextMB": "심층 산업 컨텍스트",
+      "domainContextG": "일반적 응답",
+      "vectorSearch": "벡터 검색 엔진",
+      "vectorSearchMB": "Qdrant (고성능)",
+      "vectorSearchG": "기본 벡터 스토어",
+      "multiLlm": "다중 LLM 지원",
+      "multiLlmMB": "DeepSeek, OpenAI, Ollama",
+      "multiLlmG": "제한적 옵션",
+      "selfHost": "자체 호스팅",
+      "selfHostMB": "완전 자체 호스팅",
+      "selfHostG": "클라우드 종속",
+      "customize": "도메인 커스터마이징",
+      "customizeMB": "전체 파이프라인 제어",
+      "customizeG": "제한적 설정",
+      "opensource": "오픈 소스",
+      "opensourceMB": "MIT 라이선스",
+      "opensourceG": "상이함"
     }
   },
   "about": {
@@ -50,6 +85,10 @@
     "subtitle": "AI는 질문뿐 아니라 산업을 이해해야 한다고 믿습니다.",
     "story": "다른새벽은 도메인 특화 AI의 접근성을 높이는 IT 스타트업입니다. 범용 AI 도구는 답변을 주지만, 전문 분야에서 중요한 맥락을 놓치는 경우가 많습니다.",
     "story2": "mAI-Brain은 이 문제에서 출발했습니다. 문서 수집부터 검색, 생성까지 모든 구성 요소를 도메인에 맞게 조정할 수 있는 오픈소스 프레임워크를 만들었습니다.",
+    "mission": {
+      "title": "우리의 미션",
+      "description": "모든 산업, 모든 팀, 모든 전문가가 벤더 종속이나 엔터프라이즈 가격 없이 도메인 특화 AI에 접근할 수 있도록 만듭니다."
+    },
     "values": {
       "precision": { "title": "정밀함", "description": "모든 답변에 도메인 컨텍스트" },
       "openness": { "title": "개방성", "description": "항상 오픈소스" },
@@ -67,6 +106,11 @@
       "emailLabel": "이메일",
       "message": "메시지",
       "submit": "보내기"
+    },
+    "info": {
+      "email": "hello@otherdawn.org",
+      "github": "nalutbae/mAI-Brain",
+      "response": "일반적으로 24시간 이내에 답변드립니다."
     }
   },
   "footer": {
@@ -75,6 +119,21 @@
     "company": "회사",
     "legal": "법적 고지",
     "rights": "© 2024 다른새벽 (OtherDawn). All rights reserved."
+  },
+  "metadata": {
+    "title": "다른새벽 IT — 모든 산업을 위한 도메인 특화 RAG",
+    "description": "mAI-Brain: 오픈소스 도메인 특화 RAG 챗봇 프레임워크. Qdrant + DeepSeek/OpenAI/Ollama.",
+    "ogTitle": "다른새벽 IT — 도메인 특화 RAG",
+    "ogDescription": "모든 산업을 위한 오픈소스 도메인 특화 RAG 챗봇 프레임워크.",
+    "home": "다른새벽 IT — 모든 산업을 위한 도메인 특화 RAG",
+    "product": "제품 — mAI-Brain 도메인 특화 RAG",
+    "about": "소개 — 다른새벽 IT",
+    "contact": "문의 — 다른새벽 IT"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "페이지를 찾을 수 없습니다",
+    "backHome": "홈으로 돌아가기"
   },
   "languageSwitcher": {
     "en": "EN",

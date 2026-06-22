@@ -11,12 +11,22 @@
     "titleHighlight": "for Every Industry",
     "description": "mAI-Brain is an open-source domain-specific RAG chatbot framework that delivers precise, industry-tailored AI answers — not generic responses.",
     "cta": "Get Started",
-    "ctaSecondary": "View on GitHub"
+    "ctaSecondary": "View on GitHub",
+    "stats": {
+      "stars": "6.9K+ Stars",
+      "forks": "1.2K+ Forks",
+      "domains": "Unlimited Domains"
+    }
   },
   "product": {
     "badge": "Product",
     "title": "Why mAI-Brain?",
     "subtitle": "Purpose-built for domains that demand precision over generality.",
+    "archTitle": "How It Works",
+    "archStep1": "Ingest domain documents",
+    "archStep2": "Embed with Qdrant vectors",
+    "archStep3": "Retrieve with context-aware search",
+    "archStep4": "Generate precise domain answers",
     "features": {
       "domain": {
         "title": "Domain-Specialized",
@@ -42,6 +52,31 @@
         "title": "Advanced RAG Pipeline",
         "description": "Sophisticated retrieval-augmented generation with chunking, embedding, and re-ranking optimized per domain."
       }
+    },
+    "comparisonTitle": "mAI-Brain vs. Generic RAG",
+    "comparisonSubtitle": "Built for domains that can't afford vague answers.",
+    "comparisonTable": {
+      "feature": "Feature",
+      "maiBrain": "mAI-Brain",
+      "generic": "Generic RAG",
+      "domainContext": "Domain context awareness",
+      "domainContextMB": "Deep industry context",
+      "domainContextG": "Generic responses",
+      "vectorSearch": "Vector search engine",
+      "vectorSearchMB": "Qdrant (high-performance)",
+      "vectorSearchG": "Basic vector store",
+      "multiLlm": "Multi-LLM support",
+      "multiLlmMB": "DeepSeek, OpenAI, Ollama",
+      "multiLlmG": "Limited options",
+      "selfHost": "Self-hostable",
+      "selfHostMB": "Fully self-hosted",
+      "selfHostG": "Cloud-dependent",
+      "customize": "Domain customization",
+      "customizeMB": "Full pipeline control",
+      "customizeG": "Limited configuration",
+      "opensource": "Open source",
+      "opensourceMB": "MIT License",
+      "opensourceG": "Varies"
     }
   },
   "about": {
@@ -50,6 +85,10 @@
     "subtitle": "We believe AI should understand your industry, not just your questions.",
     "story": "다른새벽 (OtherDawn) is an IT startup focused on making domain-specific AI accessible. While generic AI tools give you answers, they often miss the context that matters in specialized fields — healthcare, legal, finance, manufacturing, and more.",
     "story2": "mAI-Brain was born from this frustration: why settle for a chatbot that doesn't understand your world? We built an open-source framework where every component — from document ingestion to retrieval to generation — can be tailored to your domain.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "Make domain-specialized AI accessible to every industry, every team, every professional — without vendor lock-in or enterprise pricing."
+    },
     "values": {
       "precision": { "title": "Precision", "description": "Domain context in every answer" },
       "openness": { "title": "Openness", "description": "Open-source, always" },
@@ -67,6 +106,11 @@
       "emailLabel": "Email",
       "message": "Message",
       "submit": "Send Message"
+    },
+    "info": {
+      "email": "hello@otherdawn.org",
+      "github": "nalutbae/mAI-Brain",
+      "response": "We typically respond within 24 hours."
     }
   },
   "footer": {
@@ -75,6 +119,21 @@
     "company": "Company",
     "legal": "Legal",
     "rights": "© 2024 다른새벽 (OtherDawn). All rights reserved."
+  },
+  "metadata": {
+    "title": "다른새벽 IT — Domain-Specialized RAG for Every Industry",
+    "description": "mAI-Brain: Open-source domain-specific RAG chatbot framework. Qdrant + DeepSeek/OpenAI/Ollama.",
+    "ogTitle": "다른새벽 IT — Domain-Specialized RAG",
+    "ogDescription": "Open-source domain-specific RAG chatbot framework for every industry.",
+    "home": "다른새벽 IT — Domain-Specialized RAG for Every Industry",
+    "product": "Product — mAI-Brain Domain-Specialized RAG",
+    "about": "About — 다른새벽 IT",
+    "contact": "Contact — 다른새벽 IT"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Page not found",
+    "backHome": "Back to home"
   },
   "languageSwitcher": {
     "en": "EN",

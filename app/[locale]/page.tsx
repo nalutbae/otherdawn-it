@@ -1,7 +1,19 @@
 import { setRequestLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
+import { routing } from '@/routing';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+  return { title: t('home') };
+}
 
 export default async function HomePage({
   params,

@@ -2,27 +2,35 @@ import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { routing } from '@/routing';
 import '@/app/globals.css';
-
-export const metadata: Metadata = {
-  title: '다른새벽 IT — Domain-Specialized RAG for Every Industry',
-  description:
-    'mAI-Brain: Open-source domain-specific RAG chatbot framework. Qdrant + DeepSeek/OpenAI/Ollama.',
-  keywords: ['RAG', 'chatbot', 'domain-specific', 'Qdrant', 'open-source', 'mAI-Brain'],
-  openGraph: {
-    title: '다른새벽 IT — Domain-Specialized RAG',
-    description: 'Open-source domain-specific RAG chatbot framework for every industry.',
-    siteName: '다른새벽 IT',
-    type: 'website',
-  },
-};
 
 const locales = routing.locales;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: ['RAG', 'chatbot', 'domain-specific', 'Qdrant', 'open-source', 'mAI-Brain'],
+    openGraph: {
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      siteName: '다른새벽 IT',
+      type: 'website',
+    },
+  };
 }
 
 export default async function LocaleLayout({
