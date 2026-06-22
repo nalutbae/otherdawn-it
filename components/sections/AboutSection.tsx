@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { m, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const values = ['precision', 'openness', 'autonomy'] as const;
@@ -33,21 +33,21 @@ export function AboutSection() {
     <section className="relative px-4 py-24 pt-32 sm:px-6">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <m.div
+        <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <m.span 
+          <motion.span 
             className="inline-flex items-center rounded-full border border-accent-cyan/20 bg-accent-cyan/10 px-4 py-1.5 text-sm font-medium text-accent-cyan"
             whileHover={{ scale: 1.05, borderColor: 'rgba(6, 182, 212, 0.4)' }}
             transition={{ type: 'spring', stiffness: 400 }}
           >
             {t('badge')}
-          </m.span>
-          <m.h2 
+          </motion.span>
+          <motion.h1 
             className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,8 +55,8 @@ export function AboutSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {t('title')}
-          </m.h2>
-          <m.p 
+          </motion.h1>
+          <motion.p 
             className="mx-auto mt-4 max-w-2xl text-lg text-gray-400"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,18 +64,18 @@ export function AboutSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {t('subtitle')}
-          </m.p>
-        </m.div>
+          </motion.p>
+        </motion.div>
 
         {/* Story with staggered paragraphs */}
-        <m.div
+        <motion.div
           className="mx-auto mt-12 max-w-3xl space-y-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <m.p 
+          <motion.p 
             className="text-lg leading-relaxed text-gray-300"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -83,8 +83,8 @@ export function AboutSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {t('story')}
-          </m.p>
-          <m.p 
+          </motion.p>
+          <motion.p 
             className="text-lg leading-relaxed text-gray-300"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -92,11 +92,11 @@ export function AboutSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             {t('story2')}
-          </m.p>
-        </m.div>
+          </motion.p>
+        </motion.div>
 
         {/* Mission highlight with enhanced animations */}
-        <m.div
+        <motion.div
           ref={missionRef}
           className="mx-auto mt-12 max-w-3xl"
           initial={{ opacity: 0, y: 20 }}
@@ -104,7 +104,7 @@ export function AboutSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <m.div 
+          <motion.div 
             className="glass-card border-accent-cyan/20 p-8 text-center"
             whileHover={{ 
               scale: 1.02,
@@ -113,7 +113,7 @@ export function AboutSection() {
             }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <m.div 
+            <motion.div 
               className="mb-3 inline-flex rounded-full bg-accent-cyan/10 p-2 text-accent-cyan"
               animate={missionInView ? {
                 rotate: [0, 360],
@@ -129,30 +129,30 @@ export function AboutSection() {
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
               </svg>
-            </m.div>
-            <m.h3 
+            </motion.div>
+            <motion.h3 
               className="gradient-text text-xl font-bold"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={missionInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               {t('mission.title')}
-            </m.h3>
-            <m.p 
+            </motion.h3>
+            <motion.p 
               className="mt-2 text-gray-400"
               initial={{ opacity: 0 }}
               animate={missionInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               {t('mission.description')}
-            </m.p>
-          </m.div>
-        </m.div>
+            </motion.p>
+          </motion.div>
+        </motion.div>
 
         {/* Values with enhanced hover effects */}
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {values.map((key, i) => (
-            <m.div
+            <motion.div
               key={key}
               className="glass-card p-6 text-center transition-all hover:border-accent-cyan/20 hover:glow-cyan"
               initial={{ opacity: 0, y: 20 }}
@@ -165,7 +165,7 @@ export function AboutSection() {
                 transition: { type: 'spring', stiffness: 300 }
               }}
             >
-              <m.div 
+              <motion.div 
                 className="mb-3 inline-flex rounded-full bg-accent-cyan/10 p-3 text-accent-cyan"
                 whileHover={{ 
                   rotate: 360,
@@ -174,15 +174,15 @@ export function AboutSection() {
                 }}
               >
                 {valueIcons[key]}
-              </m.div>
-              <m.h3 
+              </motion.div>
+              <motion.h4 
                 className="gradient-text text-xl font-bold"
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: 'spring', stiffness: 400 }}
               >
                 {t(`values.${key}.title`)}
-              </m.h3>
-              <m.p 
+              </motion.h4>
+              <motion.p 
                 className="mt-2 text-sm text-gray-400"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -190,8 +190,8 @@ export function AboutSection() {
                 transition={{ duration: 0.3, delay: i * 0.1 + 0.2 }}
               >
                 {t(`values.${key}.description`)}
-              </m.p>
-            </m.div>
+              </motion.p>
+            </motion.div>
           ))}
         </div>
       </div>
