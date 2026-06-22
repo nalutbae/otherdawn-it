@@ -1,7 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const features = [
   'domain',
@@ -76,6 +77,8 @@ const comparisonRows = [
 
 export function ProductSection() {
   const t = useTranslations('product');
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <section className="relative px-4 py-24 pt-32 sm:px-6">
@@ -88,14 +91,34 @@ export function ProductSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-flex items-center rounded-full border border-accent-emerald/20 bg-accent-emerald/10 px-4 py-1.5 text-sm font-medium text-accent-emerald">
+          <motion.span 
+            className="inline-flex items-center rounded-full border border-accent-emerald/20 bg-accent-emerald/10 px-4 py-1.5 text-sm font-medium text-accent-emerald"
+            whileHover={{ scale: 1.05, borderColor: 'rgba(16, 185, 129, 0.4)' }}
+            transition={{ type: 'spring', stiffness: 400 }}
+          >
             {t('badge')}
-          </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">{t('title')}</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-400">{t('subtitle')}</p>
+          </motion.span>
+          <motion.h2 
+            className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            {t('title')}
+          </motion.h2>
+          <motion.p 
+            className="mx-auto mt-4 max-w-2xl text-lg text-gray-400"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {t('subtitle')}
+          </motion.p>
         </motion.div>
 
-        {/* Feature grid */}
+        {/* Feature grid with enhanced hover effects */}
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((key, i) => (
             <motion.div
@@ -105,25 +128,42 @@ export function ProductSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
+              whileHover={{ 
+                scale: 1.02, 
+                y: -5,
+                transition: { type: 'spring', stiffness: 300 }
+              }}
             >
-              <div className="mb-4 inline-flex rounded-lg bg-accent-emerald/10 p-2.5 text-accent-emerald">
+              <motion.div 
+                className="mb-4 inline-flex rounded-lg bg-accent-emerald/10 p-2.5 text-accent-emerald"
+                whileHover={{ rotate: 5, scale: 1.1 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 {icons[key]}
-              </div>
+              </motion.div>
               <h3 className="text-lg font-semibold">{t(`features.${key}.title`)}</h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-400">{t(`features.${key}.description`)}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Architecture diagram */}
+        {/* Architecture diagram with animated flow */}
         <motion.div
+          ref={ref}
           className="mt-24"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-center text-2xl font-bold">{t('archTitle')}</h3>
+          <motion.h3 
+            className="text-center text-2xl font-bold"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {t('archTitle')}
+          </motion.h3>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-2">
             {archSteps.map((step, i) => (
               <div key={step} className="flex items-center gap-2 sm:gap-4">
@@ -133,23 +173,47 @@ export function ProductSection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.15 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: '0 0 30px rgba(16, 185, 129, 0.2)'
+                  }}
                 >
-                  <div className="text-accent-emerald">{archIcons[i]}</div>
+                  <motion.div 
+                    className="text-accent-emerald"
+                    animate={isInView ? {
+                      y: [0, -5, 0],
+                      rotate: [0, 5, 0]
+                    } : {}}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatDelay: i * 0.5,
+                      ease: 'easeInOut'
+                    }}
+                  >
+                    {archIcons[i]}
+                  </motion.div>
                   <span className="text-sm font-medium text-gray-300">{t(step)}</span>
                 </motion.div>
                 {i < archSteps.length - 1 && (
-                  <div className="hidden text-accent-emerald/40 sm:block">
+                  <motion.div 
+                    className="hidden text-accent-emerald/40 sm:block"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.15 + 0.2 }}
+                  >
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* Comparison table */}
+        {/* Comparison table with row hover effects */}
         <motion.div
           className="mt-24"
           initial={{ opacity: 0, y: 20 }}
@@ -157,11 +221,33 @@ export function ProductSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-center text-2xl font-bold">{t('comparisonTitle')}</h3>
-          <p className="mx-auto mt-3 max-w-xl text-center text-gray-400">{t('comparisonSubtitle')}</p>
+          <motion.h3 
+            className="text-center text-2xl font-bold"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            {t('comparisonTitle')}
+          </motion.h3>
+          <motion.p 
+            className="mx-auto mt-3 max-w-xl text-center text-gray-400"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            {t('comparisonSubtitle')}
+          </motion.p>
 
           <div className="mt-8 overflow-x-auto">
-            <table className="w-full min-w-[500px]">
+            <motion.table 
+              className="w-full min-w-[500px]"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <thead>
                 <tr className="border-b border-white/10">
                   <th className="px-4 py-3 text-left text-sm font-medium text-gray-400">{t('comparisonTable.feature')}</th>
@@ -170,15 +256,26 @@ export function ProductSection() {
                 </tr>
               </thead>
               <tbody>
-                {comparisonRows.map((row) => (
-                  <tr key={row} className="border-b border-white/5 transition-colors hover:bg-white/[0.02]">
+                {comparisonRows.map((row, i) => (
+                  <motion.tr
+                    key={row}
+                    className="border-b border-white/5 transition-colors hover:bg-white/[0.02]"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.05 }}
+                    whileHover={{ 
+                      backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                      scale: 1.01
+                    }}
+                  >
                     <td className="px-4 py-3 text-sm font-medium text-gray-300">{t(`comparisonTable.${row}`)}</td>
                     <td className="px-4 py-3 text-center text-sm text-accent-emerald">{t(`comparisonTable.${row}MB`)}</td>
                     <td className="px-4 py-3 text-center text-sm text-gray-500">{t(`comparisonTable.${row}G`)}</td>
-                  </tr>
+                  </motion.tr>
                 ))}
               </tbody>
-            </table>
+            </motion.table>
           </div>
         </motion.div>
       </div>
