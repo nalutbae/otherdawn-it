@@ -25,11 +25,22 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     keywords: ['RAG', 'chatbot', 'domain-specific', 'Qdrant', 'open-source', 'mAI-Brain'],
+    icons: {
+      icon: '/favicon.svg',
+      apple: '/apple-touch-icon.svg',
+    },
     openGraph: {
       title: t('ogTitle'),
       description: t('ogDescription'),
       siteName: '다른새벽 IT',
       type: 'website',
+      images: [
+        {
+          url: '/og-image.svg',
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
   };
 }

@@ -1,7 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { m, useInView } from 'framer-motion';
+import { m } from 'framer-motion';
+import { useInView } from '@/hooks/useInView';
 import { useRef } from 'react';
 
 const features = [
@@ -155,14 +156,14 @@ export function ProductSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <m.h3 
+          <m.h2
             className="text-center text-2xl font-bold"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
             {t('archTitle')}
-          </m.h3>
+          </m.h2>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-2">
             {archSteps.map((step, i) => (
               <div key={step} className="flex items-center gap-2 sm:gap-4">
@@ -220,7 +221,7 @@ export function ProductSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <m.h3 
+          <m.h2
             className="text-center text-2xl font-bold"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -228,7 +229,7 @@ export function ProductSection() {
             transition={{ duration: 0.5 }}
           >
             {t('comparisonTitle')}
-          </m.h3>
+          </m.h2>
           <m.p 
             className="mx-auto mt-3 max-w-xl text-center text-gray-400"
             initial={{ opacity: 0 }}
