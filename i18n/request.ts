@@ -1,15 +1,11 @@
-import { getRequestConfig, getLocale } from 'next-intl/server';
+import { getRequestConfig } from 'next-intl/server';
 import { routing } from '../routing';
 
-export default getRequestConfig(async () => {
-  // setRequestLocale()로 설정된 locale을 읽어옴 (headers() 호출 없음)
-  const locale = await getLocale();
+export default getRequestConfig(async ({ requestLocale }) => {
+  let locale = await requestLocale;
 
   if (!locale || !routing.locales.includes(locale as 'en' | 'ko')) {
-    return {
-      locale: routing.defaultLocale,
-      messages: (await import(`../messages/${routing.defaultLocale}.json`)).default,
-    };
+    locale = routing.defaultLocale;
   }
 
   return {
